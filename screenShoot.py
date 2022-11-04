@@ -1,7 +1,9 @@
 import sys
 import os
-import re
+import time
 from os import path
+import PIL.ImageGrab
+import pyautogui
 
 # import PyQt5 modules
 from PyQt5.QtGui import *
@@ -26,15 +28,27 @@ class MainApp(QMainWindow , FORM_CLASS):
     self.Handle_Buttons()
     
   def Handle_Ui(self):
-    self.setWindowTitle("PyDownloader")
-    self.setFixedSize(800, 411)
+    # self.setWindowTitle("Take")
+    self.setFixedSize(123, 140)
     
   def Handle_Buttons(self):
     # For Tack Screen
-    self.pushButton.clicked.connect(self.Download)
+    self.pushButton.clicked.connect(self.Take)
+  
+  def Area(self):
+    rectang = pyautogui.position()
+  
+  def Take(self):
+    self.hide()
+    time.sleep(.5)
+    image = PIL.ImageGrab.grab()
+    self.show()
+    image.show()
     
-    
-    
+    # self.close()
+   
+   
+   
     
   # main method to call our app
 if __name__ == '__main__':

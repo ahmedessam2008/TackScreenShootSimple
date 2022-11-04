@@ -11,7 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Take</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>download.jpg</normalon>
+   </iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -44,6 +49,12 @@
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Click Here&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(170, 0, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+text-decoration: underline;
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>PushButton</string>
