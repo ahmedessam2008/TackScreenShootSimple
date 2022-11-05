@@ -1,7 +1,6 @@
 import sys
-import os
-import time
-from os import path
+from time import sleep, strftime
+from os import path , system
 import PIL.ImageGrab
 import pyautogui
 
@@ -14,11 +13,14 @@ from PyQt5.QtWidgets import *
 # from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QBoxLayout, QTextEdit, QCompleter
 from PyQt5.uic import loadUiType
 
+# For Convert to exe file 
+from screenDesign import Ui_MainWindow
+
 # For load on save Gui
-FORM_CLASS,_= loadUiType(path.join(path.dirname(__file__),"screenShot.ui"))
+# FORM_CLASS,_= loadUiType(path.join(path.dirname(__file__),"screenDesign.ui"))
 
 # Intiate Ui File
-class MainApp(QMainWindow , FORM_CLASS):
+class MainApp(QMainWindow , Ui_MainWindow):
   def __init__(self, parent=None):
     # pafy.set_api_key("AIzaSyBVMRM6hTFiSJL5K5yCSpovgn82g2W55FU")
     super().__init__(parent)
@@ -29,25 +31,21 @@ class MainApp(QMainWindow , FORM_CLASS):
     
   def Handle_Ui(self):
     # self.setWindowTitle("Take")
-    self.setFixedSize(123, 140)
+    self.setFixedSize(430, 120)
     
   def Handle_Buttons(self):
     # For Tack Screen
     self.pushButton.clicked.connect(self.Take)
   
-  def Area(self):
-    rectang = pyautogui.position()
-  
   def Take(self):
     self.hide()
-    time.sleep(.5)
+    sleep(.5)
     image = PIL.ImageGrab.grab()
     self.show()
-    image.show()
+    save_location = r"C:\Users\brave\Desktop\{}.jpg".format(strftime("%d%b%Y%H%M%S"))
+    image.save(save_location)
+    system(save_location)
     
-    # self.close()
-   
-   
    
     
   # main method to call our app
